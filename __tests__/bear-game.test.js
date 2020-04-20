@@ -116,6 +116,7 @@ test ('If user keeps animal alive for 2 minutes food and comfort level increase 
       myGame.stillAlive();
       jest.advanceTimersByTime(120001);
       expect(myGame.animals[0].foodLevel).toEqual(10);
+      console.log(myGame.animals[0]);
       expect(myGame.animals[0].comfortLevel).toEqual(10);
     });
 
