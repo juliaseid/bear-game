@@ -50,4 +50,7 @@ describe('Fuzzy', () => {
     fuzzy.sleep();
     expect(fuzzy.moodLevel).toBeGreaterThanOrEqual(26) && expect (fuzzy.moodLevel).toBeLessThanOrEqual(75);
   })
+
+  
+
 });

@@ -4,6 +4,7 @@ export class HungryBear {
     this.name = name;
     this.foodLevel = 10;
     this.moodLevel = 100;
+    this.comfortLevel = 100;
   }
 
   setHunger() {
@@ -30,7 +31,7 @@ export class HungryBear {
 
   setFatigue() {
     setInterval(() => {
-      this.moodLevel = this.moodLevel/2;
+      this.moodLevel /= 2; this.comfortLevel -= 10
     }, 2000);
   }
 
@@ -38,4 +39,16 @@ export class HungryBear {
     let naptime = Math.ceil(Math.random()*50);
     this.moodLevel += naptime
   }
+
+  setItchiness() {
+    setInterval(() => {
+      let itch = Math.random()*10;
+      this.comfortLevel -= itch;
+    }, 3000);
+  }
+
+  scratch () {
+    
+  }
+
 }
