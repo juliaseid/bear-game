@@ -39,3 +39,11 @@ _https://github.com/juliaseid/bear-game.git_
 Copyright © 2020
 
 **_Julia Seidman & Sean VanLeeuwen_**
+
+
+//The longer you keep your animals alive, the higher your level
+//setInterval({
+  //if (this.gameOver = false) {
+    //this.level += this.animals.length
+//  }
+//}) 

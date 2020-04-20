@@ -2,6 +2,7 @@ export class HungryBear {
 
   constructor(name) {
     this.name = name;
+    this.species = 'bear';
     this.foodLevel = 10;
     this.moodLevel = 100;
     this.comfortLevel = 100;
@@ -10,7 +11,7 @@ export class HungryBear {
   setHunger() {
     setInterval(() => {
       this.foodLevel--;
-    }, 1000);
+    }, 10000);
   }
 
   didYouGetEaten() {
@@ -34,7 +35,7 @@ export class HungryBear {
   setFatigue() {
     setInterval(() => {
       this.moodLevel /= 2; this.comfortLevel -= 10
-    }, 2000);
+    }, 20000);
   }
 
   sleep () {
@@ -46,7 +47,7 @@ export class HungryBear {
     setInterval(() => {
       let itch = Math.random()*10;
       this.comfortLevel -= itch;
-    }, 3000);
+    }, 30000);
   }
 
   scratch () {
