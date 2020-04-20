@@ -7,6 +7,7 @@ describe('Fuzzy', () => {
   beforeEach(function() {
     fuzzy = new HungryBear("Fuzzy");
     fuzzy.setHunger();
+    fuzzy.setFatigue();
   });
 
   afterEach(function() {
@@ -39,4 +40,14 @@ describe('Fuzzy', () => {
     expect(fuzzy.foodLevel).toEqual(10);
   });
 
+  test('mood level should divide in half every 2 seconds', function () {
+    jest.advanceTimersByTime(2001);
+    expect(fuzzy.moodLevel).toEqual(50);
+  })
+
+  test('mood level should increase between 10 and 50 points if it naps', function () {
+    jest.advanceTimersByTime(4001);
+    fuzzy.sleep();
+    expect(fuzzy.moodLevel).toBeGreaterThanOrEqual(26) && expect (fuzzy.moodLevel).toBeLessThanOrEqual(75);
+  })
 });
