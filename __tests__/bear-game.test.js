@@ -8,6 +8,7 @@ describe('Fuzzy', () => {
     fuzzy = new HungryBear("Fuzzy");
     fuzzy.setHunger();
     fuzzy.setFatigue();
+    fuzzy.setItchiness();
   });
 
   afterEach(function() {
@@ -51,6 +52,39 @@ describe('Fuzzy', () => {
     expect(fuzzy.moodLevel).toBeGreaterThanOrEqual(26) && expect (fuzzy.moodLevel).toBeLessThanOrEqual(75);
   })
 
-  
+  test ('should eat you if it gets too tired', function() {
+    jest.advanceTimersByTime(14001);
+    fuzzy.feed();
+    expect(fuzzy.didYouGetEaten()).toEqual(true);
+  })
+
+  test ('comfort level should decline by 10 every 2 seconds', function () {
+    jest.advanceTimersByTime(2001);
+    expect(fuzzy.comfortLevel).toEqual(90);
+  })
+
+  test ('comfort level should decrease every 3 seconds as bear gets randomly itchy', function () {
+    jest.advanceTimersByTime(3001);
+    expect(fuzzy.comfortLevel).toBeGreaterThan(80) && expect(fuzzy.comfortLevel).toBeLessThan(90);
+  })
+
+  test ('comfort level should increase by 33 points when bear gets a good scratch', function() {
+    jest.advanceTimersByTime(2001);
+    fuzzy.scratch();
+    expect(fuzzy.comfortLevel).toEqual(123);
+  })
+
+  test ('when bear goes swimming, mood level should increase by 10 and comfort level should increase by 10', function() {
+    jest.advanceTimersByTime(2001);
+    fuzzy.swim();
+    expect(fuzzy.comfortLevel).toEqual(100) && expect(fuzzy.moodLevel).toEqual(60);
+  })
+
+  test ('Uncomfortable bears are hangry bears - watch out!', function() {
+    jest.advanceTimersByTime(20001);
+    fuzzy.feed();
+    fuzzy.sleep();
+    expect(fuzzy.didYouGetEaten()).toEqual(true);
+  })
 
 });

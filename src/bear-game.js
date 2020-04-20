@@ -19,7 +19,9 @@ export class HungryBear {
       eaten = true;
     } else if (this.moodLevel < 1 ){
       eaten = true;
-    } else {
+    } else if (this.comfortLevel < 1) {
+      eaten = true
+    }  else {
       eaten = false;
     }
     return eaten;
@@ -48,7 +50,12 @@ export class HungryBear {
   }
 
   scratch () {
-    
+    this.comfortLevel += 33;
+  }
+
+  swim () {
+    this.comfortLevel += 10;
+    this.moodLevel += 10;
   }
 
 }
