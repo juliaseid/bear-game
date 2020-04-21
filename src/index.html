@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
   <title>Zoo Keeper</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script type="text/javascript" src="bundle.js"></script>
 </head>
 <body>
   <div class="container">
+    <h3>Keep your animals fed and comfortable or they will eat you!</h3>
     <form id = "addAnimals">
         <div class="form-group">
         <label for="bearName">My Bear's Name: </label>
@@ -12,15 +16,25 @@
         </div>
         <button type="submit" id ="addBear">Add My Bear!</button>
     </form>
+<!-- Below this will be hunger progress bar -->
+    <div class="progress">
+      <div id="hunger-bar"class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+      </div>
+    </div>  
+<!-- Below this will be moodLevel Progress bar -->
+
+
     <div class="form-group">
       <form id="formOne"></form>
         <button id="eat" type="button" class="btn btn-success">Feed</button>
-        <button id="sleep" type="button" class="btn btn-primary">Sleep</button>
+        <button id="sleep" type="button" class="btn btn-success">Sleep</button>
         <button id="swim" type="button" class="btn btn-success">Swim</button>
         <button id="scratch" type="button" class="btn btn-success">Scratch</button>
-    
-        </div>
       </form>  
     </div>  
+    <div id="images">
+      <p id="sleep"></p>
+    </div>
   </div>  
 </body>
+</html>

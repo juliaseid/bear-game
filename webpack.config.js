@@ -1,7 +1,9 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'development',
@@ -18,11 +20,12 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new UglifyJsPlugin({ sourceMap: true }),
+    new Dotenv(),
     new webpack.ProvidePlugin({
-      jQuery: 'jquery',
-      $: 'jquery',
-      jquery: 'jquery'
-  }),
+         jQuery: 'jquery',
+         $: 'jquery',
+         jquery: 'jquery'
+      }),
     new HtmlWebpackPlugin({
       title: 'Bear Game',
       template: './src/index.html',
