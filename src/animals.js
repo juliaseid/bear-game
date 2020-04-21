@@ -13,6 +13,7 @@ export class HungryBear {
       this.foodLevel--;
     }, 10000);
   }
+//food level zeroes out after 100 seconds (100,000 ms)
 
   didYouGetEaten() {
     let eaten = false;
@@ -37,6 +38,7 @@ export class HungryBear {
       this.moodLevel /= 2; this.comfortLevel -= 10
     }, 20000);
   }
+//comfort level zeroes out after 200 seconds, mood level zeroes out after 280 seconds
 
   sleep () {
     let naptime = Math.ceil(Math.random()*50);
